@@ -1,0 +1,15 @@
+.navbar                        {color: #efefef;
+}
+.thd-variant-editor-slider     {overflow-x: scroll;
+                                overflow-y: visible;
+                                min-width: 100%;
+                                min-height: 200px;
+                                display: flex;
+}
+.thd-variation-unit-column     {min-width: 490px;
+}
+
+button                         {float: right;
+}
+
+.select__control               {min-width: 200px;}
