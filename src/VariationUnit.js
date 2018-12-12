@@ -45,11 +45,12 @@ class VariationUnit extends Component {
           type="button"
           className="btn btn-success"
           value={this.props.unitID}
-          onClick={evt => this.props.unitAdder(this.props.unitID)}>
+          onClick={() => this.props.unitAdder(this.props.unitID)}>
           <FontAwesomeIcon icon="plus-circle" />
         </button>
         {this.props.readings.map((reading, i) => (
           <div className="form-row" key={i}>
+            <div className="input-group">
             <div className="" key="select_key">
               <Select
                 defaultValue={null}
@@ -69,15 +70,29 @@ class VariationUnit extends Component {
                 type="text"
                 id={"readingInput-" + this.props.unitID + "-" + i}
                 name={i}
-                defaultValue={null}
                 className="form-control"
                 key={i}
                 value={reading.reading}
                 onChange={this.changeReading}
               />
+              <div className="input-group-append">
+                <button type="button"
+                  className="btn btn-danger"
+                  value={this.props.unitID}
+                  onClick={() => this.props.readingRemover(this.props.unitID, {i})}>
+                  <FontAwesomeIcon icon="minus-circle" />
+                </button>
+              </div>
+              </div>
             </div>
           </div>
         ))}
+        <button type="button"
+          className="btn btn-info"
+          value={this.props.unitID}
+          onClick={() => this.props.readingAdder(this.props.unitID)}>
+          <FontAwesomeIcon icon="plus-circle" />
+        </button>
       </div>
     );
   }

@@ -25,6 +25,8 @@ class VariantEditor extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.addUnit = this.addUnit.bind(this);
+    this.addReading = this.addReading.bind(this);
+    this.removeReading = this.removeReading.bind(this);
     // send correct "this" with function to children
   }
 
@@ -62,7 +64,19 @@ class VariantEditor extends Component {
         mydata[key] = this.state.units[parseInt(key) - 1];
       }
     );
-    console.log(mydata);
+    this.setState({units: mydata});
+  }
+
+  addReading(unitID) {
+    let mydata = JSON.parse(JSON.stringify(this.state.units));
+    console.log(mydata[unitID]);
+    mydata[unitID].push({witnesses: [], reading: ""});
+    this.setState({units: mydata});
+  }
+
+  removeReading(unitID, index) {
+    let mydata = JSON.parse(JSON.stringify(this.state.units));
+    console.log(unitID, index);
     this.setState({units: mydata});
   }
 
@@ -102,6 +116,8 @@ class VariantEditor extends Component {
                   key={mykey}
                   changeHandler={this.handleChange}
                   unitAdder={this.addUnit}
+                  readingAdder={this.addReading}
+                  readingRemover={this.removeReading}
                 />
             ))}
           </div>

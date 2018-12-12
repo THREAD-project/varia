@@ -5,10 +5,11 @@ import './App.css';
 // Set up Fontawesome image font
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCodeBranch, faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCodeBranch, faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 // Export icons to library for whole app
 library.add(faCodeBranch)
 library.add(faPlusCircle)
+library.add(faMinusCircle)
 
 class App extends Component {
   constructor(props) {
